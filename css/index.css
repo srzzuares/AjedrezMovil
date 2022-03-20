@@ -1,0 +1,357 @@
+body {
+  font-family: "normaBold";
+    font-style: oblique;
+    background-image: url('../img/p/chess.png');
+    color: blueviolet;
+    justify-content: center;
+    align-items: center;
+  background-size:550px 800px;
+}
+p{
+  font-family:"normalBold";
+  font-size:20px;
+  margin:auto 5;
+  color:#cd853f;
+}
+
+
+@font-face {
+  font-family: "normal";
+  src: url("../fonts/Gideon_Roman/GideonRoman-Regular.ttf");
+}
+@font-face {
+  font-family: "normalBold";
+  src: url("../fonts/Lobster/Lobster-Regular.ttf");
+}
+@font-face {
+  font-family: "estilochido";
+  src: url("../fonts/Quintessential/Quintessential-Regular.ttf");
+}
+
+
+#board{
+    border: 5px solid black;
+    width: 324px;
+    height: 368px;
+    position: relative;
+    background-position: center;
+}
+
+
+#board .square{
+  background-size: 150% 150%;
+  width: 40.5px;
+  height: 46px;
+  float:left;
+  cursor: pointer;
+  z-index:10;
+  position: relative;
+  }
+
+#board .square.empty
+{
+    background-image:none;
+}
+#board .square.light
+{
+    background-color: #272a2c;
+}
+#board .square.dark
+{
+    background-color: #596673;
+}
+
+
+#board .square.selected
+{
+    box-shadow: 0 0 10px rgb(179, 60, 173), 0 0 10px rgb(179, 60, 173) inset;
+    z-index: 20;
+}
+
+
+#board .square.black-king
+{
+  background-image: url("../img/piezas2.png");
+  background-size: 450% 120%;
+  background-position: 37% 100%;
+}
+
+#board .square.black-queen
+{
+  background-image: url("../img/piezas2.png");
+  background-size: 500% 140%;
+  background-position: 60% 100%;
+}
+
+#board .square.black-bishop
+{
+  background-image: url("../img/piezas2.png");
+  background-size: 500% 145%;
+  background-position: 80% 100%;
+}
+
+#board .square.black-knight
+{
+  background-image: url("../img/piezas2.png");
+  background-size: 500% 145%;
+  background-position: 100% 100%;
+}
+
+#board .square.black-castle
+{
+  background-image: url("../img/piezas2.png");
+  background-size: 480% 150%;
+  background-position: 14% 110%;
+}
+
+#board .square.black-pawn
+{
+  background-image: url("../img/piezas2.png");
+  background-size: 600% 140%;
+  background-position: -2% 100%;
+}
+
+
+
+
+
+
+#board .square.white-king
+{
+  background-image: url("../img/piezas2.1.png");
+  background-size: 450% 120%;
+  background-position: 37% 100%;
+}
+
+#board .square.white-queen
+{
+  background-image: url("../img/piezas2.1.png");
+  background-size: 500% 140%;
+  background-position: 60% 100%;
+}
+
+#board .square.white-bishop
+{
+  background-image: url("../img/piezas2.1.png");
+  background-size: 500% 145%;
+  background-position: 80% 100%;
+}
+
+#board .square.white-knight
+{
+  background-image: url("../img/piezas2.1.png");
+  background-size: 500% 145%;
+  background-position: 100% 100%;
+}
+
+#board .square.white-castle
+{
+  background-image: url("../img/piezas2.1.png");
+  background-size: 480% 150%;
+  background-position: 14% 110%;
+}
+
+#board .square.white-pawn
+{
+  background-image: url("../img/piezas2.1.png");
+  background-size: 600% 140%;
+  background-position: -2% 100%;
+}
+
+#board .overlay{
+  background-color: #a2c3cd7a;
+  position: absolute;
+  height: 104%;
+  width: 100%;
+  z-index: 0;
+  opacity: 0;
+  -webkit-transition: all 1s ease-out;
+  -moz-transition:  all 1s ease-out;
+  -ms-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+
+}
+
+#board .overlay.show{
+  z-index: 100;
+  opacity: 1;
+}
+
+#board .overlay .overlay-inner{
+  position:absolute ;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 10px;
+  width:256px;
+  background: rgb(0, 20, 20);
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 0 5 60px rgb(255 248 220);
+  text-align: center;
+}
+
+#board .overlay .overlay-title{
+  display: block;
+  font-weight: bold;
+  line-height: 25px;
+  font-size: 25px;
+  font-family: "normal";
+  margin:revert;
+  color: #cd853f;
+}
+#board .overlay .overlay-title2{
+  display: block;
+  font-weight: bold;
+  line-height:20px;
+  font-size: 35px;
+  font-family: "estilochido";
+  margin:revert;
+  color: #cd853f;
+}
+
+#board .overlay .overlay-text{
+  line-height: 25px;
+  font-size: 25px;
+  font-family: 'normalBold';
+  color: #cd853f;
+}
+#board .overlay .overlay-text2{
+  line-height: 20px;
+  font-size: 22px;
+  font-family: 'normalBold';
+  color: #cd853f;
+}
+#board .overlay .overlay-text3{
+  line-height: 15px;
+  font-size: 25px;
+  font-family: 'normalBold';
+  color: #cd853f;
+}
+
+.game-title{
+  margin:0 auto;
+  color: #a2c3cd;
+  font-family: 'estilochido';
+  font-size:24px;
+}
+
+.overlay-buttonn{
+  margin:110px auto;
+
+  display: inline-block;
+  line-height: 40px;
+  padding: 0 30px;
+  color: rgb(0, 20, 20);
+  background: #cd853f;
+  border-radius: 15px;
+  font-family: 'normal';
+  font-size: 20px;
+  text-decoration:#f4a460;
+  font-weight: bold;
+}
+
+#board .overlay .overlay-button{
+  display: inline-block;
+  line-height: 35px;
+  padding: 0 30px;
+  color: rgb(0, 20, 20);
+  background: #cd853f;
+  border-radius: 15px;
+  font-family: 'normal';
+  font-size: 20px;
+  text-decoration:#f4a460;
+  font-weight: bold;
+}
+#board .overlay .overlay-button2{
+  display:inline-grid;
+  line-height: 25px;
+  padding: 0 30px;
+  color: rgb(0, 20, 20);
+  background: #cd853f;
+  border-radius: 15px;
+  font-family: 'normal';
+  font-size: 20px;
+  text-decoration:#f4a460;
+  font-weight: bold;
+}
+
+#board #promotionList{
+  margin:0;
+  padding: 20px 0;
+  list-style-type: none;
+  text-align: center;
+}
+
+#board #promotionList li{
+  display: inline-block;
+  padding: 0 5px;
+  
+}
+#board #promotionList a{
+  background-image: url("../img/pieces.png");
+  background-size: 600% 200%;
+  width: 100px;
+  height: 100px;
+  display: block;
+  background-color: #f6c0827d;
+  border: 5px solid #bb9d7a;
+  border-radius: 5px;
+}
+
+#board #promotionList.white li a.queen{
+background-image: url("../img/piezas2.1.png");
+  background-size: 500% 140%;
+  background-position: 60% 100%;
+}
+
+#board #promotionList.white li a.castle{
+  background-image: url("../img/piezas2.1.png");
+  background-size: 480% 150%;
+  background-position: 14% 110%;
+}
+
+#board #promotionList.white li a.bishop{
+  background-image: url("../img/piezas2.1.png");
+  background-size: 500% 145%;
+  background-position: 80% 100%;
+}
+
+#board #promotionList.white li a.knight{
+  background-image: url("../img/piezas2.1.png");
+  background-size: 500% 145%;
+  background-position: 100% 100%;
+}
+
+
+#board #promotionList.black li a.queen{
+  background-image: url("../img/piezas2.png");
+  background-size: 500% 140%;
+  background-position: 60% 100%;
+}
+
+#board #promotionList.black li a.castle{
+  background-image: url("../img/piezas2.png");
+  background-size: 480% 150%;
+  background-position: 14% 110%;
+}
+
+#board #promotionList.black li a.bishop{
+  background-image: url("../img/piezas2.png");
+  background-size: 500% 145%;
+  background-position: 80% 100%;
+}
+
+#board #promotionList.black li a.knight{
+  background-image: url("../img/piezas2.png");
+  background-size: 500% 145%;
+  background-position: 100% 100%;
+}
+
+
+
+
+
+

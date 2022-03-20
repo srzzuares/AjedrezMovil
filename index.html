@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title> 200527 </title>
+    <meta charset="utf-8"> 
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" href="./img/p/aqua.gif">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script>
+    var song = new Audio();
+    var soung = new Audio();
+    song.src= "audio/cancion.mp3";
+    song.loop = true
+    soung.src= "audio/ganadores.mp3";
+    soung.volume= "100";
+    soung.loop=true;
+    soung.autoplay=true;
+</script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Syne+Tactile&display=swap');
+    </style>
+<link href="https://fonts.googleapis.com/css2?family=Festive&display=swap" rel="stylesheet">
+</head>
+
+<!-- Clase 25/01/2022--> 
+
+<body onload="setup();">
+    
+        <h1  class="game-title">JUEGO DE AJEDREZ - 200527</h1>
+        <p id = "turnInfo"> Turno del Jugador de color: <b> Blanco</b></p>
+        <!--<embed src="cancion.mp3" autostarty="true" loop="true" volume="80" width="0" height="0">-->
+        
+        
+            <section id="board" onmousedown="song.play();" >
+                <!--Primer mensaje para promover un peon-->
+                <div class="overlay" id="promotionMessage">
+                    <div  class="overlay-inner" style="height: 360px;">
+                        <span class="overlay-title">Coronacion  </span>
+                        <br>
+                        <p>Elije la pieza a Promover:</p>
+                        
+                        <p class="overlay-text" id="alertText"></p>
+                        <ul id="promotionList" class="white">
+                            <li><a href="#" class="promotion-button queen" onclick="promote('queen');"></a></li>
+                            <li><a href="#" class="promotion-button castle" onclick="promote('castle');"></a></li>
+                            <li><a href="#" class="promotion-button bishop" onclick="promote('bishop');"></a></li>
+                            <li><a href="#" class="promotion-button knight" onclick="promote('knight');"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            
+            
+            <!--Segundo mensaje para error de casillas o movimiento no accesible-->
+                <div class="overlay" id="errorMessage">
+                    <div class="overlay-inner" style="height: 400px;">
+                        <span class="overlay-title2"> Opps:</span>
+                        <p class="overlay-text2" id="errorText" >No Hay Ninguna Pieza aquí</p>
+                        <p class="overlay-text2" >Humano</p>
+                        <a href="#" class="overlay-button2" onclick="closeError();"> Cerrar</a>
+                        <img src="./img/p/Perro.png" width="200px" height="300px">
+                    </div>
+                </div>
+            
+            
+            <!--Tercer mensaje de juego terminado-->
+            <div class="overlay"  id="endMessage">
+                <div class="overlay-inner" style="height: 430px;">
+                    <span class="overlay-title">Juego Terminado Humano </span>
+                    <p class="overlay-text3">Felicidades Jugador:</p>
+                    <p class="overlay-text3" id="endText">Felicidades Jugador : <b>color</b></p>
+                    <p class="overlay-text3"> HaZ Ganado</p>
+                    <a href="" class="overlay-button" onclick="newGame();">Jugar de Nuevo</a>
+                    <img src="./img/p/gandorr.gif" onmouseleave="soung.play();" width="200px" height="200px">
+                </div>
+            </div>
+            
+            
+            </section>
+        
+        
+                    <a href="" class="overlay-buttonn" onclick="newGame();">Jugar de Nuevo</a>
+        
+        <script type="text/javascript" src="js/index.js"></script>
+        
+        
+    
+
+</body>
+
+</html>
